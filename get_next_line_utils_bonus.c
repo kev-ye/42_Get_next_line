@@ -40,7 +40,7 @@ char		*ft_strjoin_gnl(char const *s1, char const *s2)
 {
 	size_t	len;
 	char	*str;
-	int 	i;
+	int		i;
 
 	if (!s1 || !s2)
 		return (NULL);
