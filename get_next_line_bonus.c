@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:44:32 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/07 16:45:10 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/21 01:21:36 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int				get_next_line(int fd, char **line)
 		if (!tmp->str)
 			tmp->str = ft_strdup("");
 		buff[ret] = '\0';
-		tmp->str = ft_strjoin(tmp->str, buff);
+		tmp->str = ft_strjoin_gnl(tmp->str, buff);
 	}
 	free(buff);
 	*line = get_line(tmp->str);

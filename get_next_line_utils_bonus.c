@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:44:50 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/07 16:45:00 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/21 01:23:19 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,25 @@ char		*ft_strdup(const char *s1)
 	return (str - len);
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin_gnl(char const *s1, char const *s2)
 {
-	char	*str;
 	size_t	len;
+	char	*str;
+	int 	i;
 
 	if (!s1 || !s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	while (*s1)
-		*str++ = *s1++;
-	while (*s2)
-		*str++ = *s2++;
+	i = 0;
+	while (s1[i])
+		*str++ = s1[i++];
+	i = 0;
+	while (s2[i])
+		*str++ = s2[i++];
 	*str = '\0';
+	free((char *)s1);
 	return (str - len);
 }
 
