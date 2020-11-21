@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 20:10:41 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/21 01:20:11 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/21 20:59:11 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static t_set	*current_set(t_set **set, int fd)
 	t_set *tmp;
 
 	if (!*set)
-		if (!(*set = ft_lstnew()))
+		if (!(*set = ft_lstnew_gnl()))
 			return (NULL);
 	tmp = *set;
 	if ((*set)->fd && (*set)->fd != fd)
@@ -98,8 +98,8 @@ static t_set	*current_set(t_set **set, int fd)
 		(*set)->fd = fd;
 	if (!tmp)
 	{
-		tmp = ft_lstnew();
-		ft_lstadd_front(&(*set), tmp);
+		tmp = ft_lstnew_gnl();
+		ft_lstadd_front_gnl(&(*set), tmp);
 		tmp->fd = fd;
 	}
 	return (tmp);
@@ -122,13 +122,13 @@ int				get_next_line(int fd, char **line)
 	{
 		if ((ret = read(tmp->fd, buff, BUFFER_SIZE)) < 0)
 			return (-1);
-		if (!tmp->str)
-			tmp->str = ft_strdup("");
 		buff[ret] = '\0';
 		tmp->str = ft_strjoin_gnl(tmp->str, buff);
 	}
 	free(buff);
 	*line = get_line(tmp->str);
 	tmp->str = next_line(tmp->str);
+	if (!tmp->str)
+		ft_list_remove_gnl(&set);
 	return ((ret) ? 1 : 0);
 }

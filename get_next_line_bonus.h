@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:44:43 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/21 01:22:31 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/21 20:55:19 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct	s_set
 	struct s_set	*next;
 }				t_set;
 
-t_set			*ft_lstnew(void);
-void			ft_lstadd_front(t_set **alst, t_set *new);
+t_set			*ft_lstnew_gnl(void);
+void			ft_lstadd_front_gnl(t_set **alst, t_set *new);
+void			ft_list_remove_gnl(t_set **alst);
 size_t			ft_strlen(const char *s);
-char			*ft_strdup(const char *s1);
 char			*ft_strjoin_gnl(char const *s1, char const *s2);
 int				get_next_line(int fd, char **line);
 
