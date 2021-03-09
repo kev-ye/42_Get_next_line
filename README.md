@@ -6,4 +6,4 @@ The aim of this project is to make you code a function that returns a line endin
 
 ## Info
 
-Check libft for version norme V3
+Check libft for version norme V3.
